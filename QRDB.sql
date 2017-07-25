@@ -1,0 +1,27 @@
+--use master
+--drop database QRDB
+--create database QRDB
+--use QRDB
+--drop table User_Details
+--create table User_Details(User_ID bigint not null identity(1,1) primary key, User_Name varchar(200) not null, User_DOB date not null,User_Email varchar(200) not null,User_Password varchar(500) not null, User_Act_Ind bit not null, Last_Updated_Dts datetime)
+--drop table User_Offers
+--create table User_Offers(User_ID bigint not null,Offer_ID bigint not null, Offer_Consumed_Ind bit not null, Last_Updated_Dts datetime not null)
+--drop table Offer_Details
+--create table Offer_Details(Offer_ID bigint not null identity(1,1) primary key, Offer_Type smallint not null, Offer_Data varchar(max) not null,Offer_Act_Ind bit not null,Offer_Dts datetime not null,Last_Updated_Dts datetime not null)
+--USE [master]
+--GO
+--CREATE LOGIN [QRUser] WITH PASSWORD=N'Infosys@123', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+--GO
+--USE [QRDB]
+--GO
+--CREATE USER [QRUser] FOR LOGIN [QRUser]
+--GO
+--USE [QRDB]
+--GO
+--ALTER ROLE [db_datareader] ADD MEMBER [QRUser]
+--GO
+--USE [QRDB]
+--GO
+--ALTER ROLE [db_datawriter] ADD MEMBER [QRUser]
+--GO
+use QRDB
